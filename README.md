@@ -7,7 +7,7 @@ Hey there, data wrangler! 🤠 Welcome to the wildest, most organized hoedown of
 1. [The Rootin' Tootin' Basics](#the-rootin-tootin-basics)
 2. [The Cattle Roundup with Arrays](#the-cattle-roundup-with-arrays)
 3. [Lassoing the Wild West of Strings](#lassoing-the-wild-west-of-strings)
-4. [Wrangling Matrices on the Prairie](#Matrices)
+4. [Wrangling Matrices on the Prairie](#wrangling-matrices-on-the-prairie)
 5. [The Outlaw Linked Lists](#the-outlaw-linked-lists)
 6. [The Sheriff Stack and Queue](#the-sheriff-stack-and-queue)
 7. [Wanted: Dead or Alive - Hash Tables](#wanted-dead-or-alive-hash-tables)
