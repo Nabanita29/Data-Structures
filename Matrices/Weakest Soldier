@@ -23,11 +23,12 @@ class Solution {
             countArray[i] = count;
         }
 
-        // Create an array of row indices and sort them based on the counts
+// Create an array of row indices and sort them based on the counts
         Integer[] indices = new Integer[row];
         for (int i = 0; i < row; i++) {
             indices[i] = i;
         }
+// Now we compare which row has weakest soliders
         Arrays.sort(indices, (a, b) -> Integer.compare(countArray[a], countArray[b]));
 
         // Copy the first k indices to the result array
