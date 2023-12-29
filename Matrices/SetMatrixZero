@@ -1,0 +1,46 @@
+class Solution {
+    public void setZeroes(int[][] matrix) {
+
+       boolean[] zerorow = new boolean[matrix.length];
+       boolean[] zerocolumn = new boolean[matrix[0].length];
+
+       int r = matrix.length;
+       int c = matrix[0].length;
+
+       for (int i = 0; i < r; i++){
+           for (int j = 0; j < c; j++){
+               if (matrix[i][j] == 0){
+                   zerorow[i] = true;
+                   zerocolumn[j] = true;
+               }
+           }
+       } 
+
+       for (int i = 0; i < r; i++){
+           if(zerorow[i]){
+               for (int j = 0; j < c; j++){
+                   matrix[i][j] = 0;
+               }
+           }
+       }
+
+       for (int j = 0; j < c; j++){
+           if(zerocolumn[j]){
+               for (int i = 0; i < r; i++){
+                   matrix[i][j] = 0;
+               }
+           }
+       }
+    }
+}
+
+
+
+// VERY EASY
+// 1. ITERATE THROUGH EACH ROW AND COLUMN
+// 2. IF matrix[i][j] == 0 WE HAVE TO SET THE WHOLE ROW AND COLUMN TO ZERO SO SET BOOLEAN TRUE
+// 3. IF ROW = 0 TRUE GO TO EACH COLUMN AND WITHIN THAT SET ROW TO BE ZERO
+// 4. IF COLUMN = 0 TRUE GO TO EACH ROW AND WITHIN THAT ROW SET COLUMN AS ZERO
+//
+//
+//
