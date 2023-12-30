@@ -1,0 +1,21 @@
+
+THERE ARE TWO WAYS OF ITERATING IN A ARRAY WHICH CONTAINS STRINGS
+
+1. for (int i = 0; i < words.length; i++){
+            String w = words[i];
+
+            for (int j = 0; j < w.length(); j++){
+                char ch = w.charAt(j);
+                int idx = (int)(ch-'a');
+                fre[idx] = fre[idx]+1;
+            }
+        }
+
+2.  for (String word : words){
+           for(int j = 0; j < word.length(); j++ ){
+               map.put(word.charAt(j), map.getOrDefault(word.charAt(j), 0) + 1);
+
+           }
+       }
+
+REMEMBER THIS
