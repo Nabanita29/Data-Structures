@@ -1,0 +1,34 @@
+We can use simple recursion and clever indexing to create a binary tree using array of values.  
+
+1. Create a private method of createTreeHelper
+2. Iterate till end of array 
+3. for left node = 2*index + 1 
+4. for right node = 2*index + 2
+
+ 
+
+public class Solution {
+    public static Node createTree(int []arr){
+
+        if (arr == null || arr.length == 0){
+            return null;
+        }
+
+        return createTreeHelper(arr, 0); 
+    }
+        private static Node createTreeHelper(int[] arr, int index){
+            if (index < arr.length){
+                Node newNode = new Node(arr[index]);
+                newNode.left = createTreeHelper(arr, 2*index+1);
+                newNode.right = createTreeHelper(arr, 2*index+2);
+                return newNode;
+
+            }
+
+            return null;
+        
+    
+    
+    
+       }
+}
