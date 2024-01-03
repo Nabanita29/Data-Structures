@@ -1,0 +1,20 @@
+// RECURSIVE
+
+class Solution {
+    public List<Integer> postorderTraversal(TreeNode root) {
+        ArrayList<Integer> list = new ArrayList<>();
+        helper(list, root);
+        return list;
+    }
+
+    public void helper(ArrayList list, TreeNode root){
+        if (root == null){
+            return;
+        }
+
+        helper(list, root.left);
+        helper(list, root.right);
+        list.add(root.val);
+
+    }
+}
