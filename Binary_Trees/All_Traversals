@@ -1,0 +1,108 @@
+Algorithm Steps:
+1. Use a stack to traverse a binary tree.
+2. For each node, push a pair <value, num> onto the stack.
+3. Initialize num to 1 for the first visit.
+4. Maintain three lists for preorder, inorder, and postorder traversals.
+5. Iterate while the stack is not empty.
+6. For each iteration, pop the top of the stack (T) and check num.
+
+   - Case 1 (num == 1):
+     - Push the node's value to the preorder list.
+     - Push the same node with num = 2 for the next visit.
+     - If there's a left child, push it with num = 1.
+
+   - Case 2 (num == 2):
+     - Push the node's value to the inorder list.
+     - Push the same node with num = 3 for the next visit.
+     - If there's a right child, push it with num = 1.
+
+   - Case 3 (num == 3):
+     - Push the node's value to the postorder list.
+     - No further actions needed for this node.
+
+7. Continue until the stack is empty, completing the traversals.
+
+
+// RECURSION
+
+import java.util.ArrayList;
+
+import java.util.List;
+
+public class Solution {
+
+    public static void inorder(TreeNode root,List<Integer>ans){
+
+        if(root==null)return;
+
+ 
+
+        inorder(root.left,ans);
+
+        ans.add(root.data);
+
+        inorder(root.right,ans);
+
+    }
+
+    public static void preorder(TreeNode root,List<Integer>ans){
+
+        if(root==null)return;
+
+ 
+
+        ans.add(root.data);
+
+        preorder(root.left,ans);
+
+        preorder(root.right,ans);
+
+    }
+
+ 
+
+    public static void post(TreeNode root,List<Integer>ans){
+
+        if(root==null)return;
+
+ 
+
+        post(root.left,ans);
+
+        post(root.right,ans);
+
+        ans.add(root.data);
+
+        
+
+    }
+
+    public static List<List<Integer>> getTreeTraversal(TreeNode root) {
+
+        // Write your code here.
+
+        List<List<Integer>>ans=new ArrayList<>();
+
+        List<Integer>a1=new ArrayList<>();
+
+        List<Integer>a2=new ArrayList<>();
+
+        List<Integer>a3=new ArrayList<>();
+
+        inorder(root,a1);
+
+        preorder(root,a2);
+
+        post(root,a3);
+
+        ans.add(a1);
+
+        ans.add(a2);
+
+        ans.add(a3);
+
+        return ans;
+
+    }
+
+}
