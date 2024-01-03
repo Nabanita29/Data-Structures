@@ -1,0 +1,63 @@
+// THE HEIGHT OF A TREE    
+
+public int maxDepth(TreeNode root) {
+
+        if(root == null){
+            return 0;
+        }
+        int leftDepth  = maxDepth(root.left);
+        int rightDepth  = maxDepth(root.right);
+
+        return Math.max(leftDepth, rightDepth)+1;
+        
+    }
+
+// SEE IF TREE IS BALANCED - A height-balanced binary tree is a binary tree in which the depth of the two subtrees of every node never differs by more than one
+class Solution {
+    public boolean isBalanced(TreeNode root) {
+        if (root == null) {
+            return true; // An empty tree is considered balanced
+        }
+
+        int leftHeight = getHeight(root.left);
+        int rightHeight = getHeight(root.right);
+
+        if (Math.abs(leftHeight - rightHeight) > 1) {
+            return false;
+        }
+
+        return isBalanced(root.left) && isBalanced(root.right);
+    }
+
+    private int getHeight(TreeNode node) {
+        if (node == null) {
+            return 0;
+        }
+        return 1 + Math.max(getHeight(node.left), getHeight(node.right));
+    }
+}
+
+
+// DIAMETER 
+
+
+class Solution {
+    
+
+        private int maxi = 0;
+        public int solve(TreeNode root){
+            if (root == null){
+                return 0;
+            }
+            int left = solve(root.left);
+            int right = solve(root.right);
+            maxi = Math.max(maxi, (left+right));
+           return (1+Math.max(left,right));
+        }
+
+        public int diameterOfBinaryTree(TreeNode root) {
+            solve(root);
+            return maxi;
+        
+    }
+}
