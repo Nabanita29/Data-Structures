@@ -1,0 +1,17 @@
+class Solution {
+    boolean hasArrayTwoCandidates(int arr[], int n, int x) {
+        
+        HashSet<Integer> result = new HashSet<>();
+        
+        for(int i = 0; i < n; i++){
+            int remainder = x - arr[i];
+            if(result.contains(remainder)){
+                return true;
+            } result.add(arr[i]);
+           
+
+        }
+        
+        return false;
+    }
+}
