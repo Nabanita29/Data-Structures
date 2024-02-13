@@ -1,0 +1,16 @@
+class Solution {
+
+    public static String PartyType( long a[], int n)
+    {
+        HashSet<Long> result = new HashSet<>();
+        
+        for(int i = 0; i < n; i++){
+            if(result.contains(a[i])){
+                return "BOYS";
+            }
+            result.add(a[i]);
+        }
+    
+    
+    return "GIRLS";
+}}
