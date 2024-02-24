@@ -1,0 +1,39 @@
+import java.util.* ;
+import java.io.*; 
+
+public class Solution {
+	public static int getCeil(int n, int x, int[] arr) {
+        int ans = -1;
+        int l = 0, h = n - 1;
+        while (l <= h) {
+            int mid = (l+h)/2;
+            if(arr[mid] >= x){
+                ans = arr[mid];
+                h = mid - 1;
+            } else{
+                l = mid+1;
+            }
+        }
+        return ans;
+    }
+
+    public static int getFloor(int n, int x, int[] arr) {
+        int ans = -1;
+        int l = 0, h = n - 1;
+        while (l <= h) {
+            int mid = (l + h) / 2;
+            if(arr[mid] <= x){
+                ans = arr[mid];
+                l = mid+1;
+                
+            } else {
+                h = mid - 1;
+            }}
+        return ans;
+    }
+
+    public static int[] getFloorAndCeil(int[] a, int n, int x) {
+        return new int[]{getFloor(n, x, a), getCeil(n, x, a)};
+    }
+    
+}
