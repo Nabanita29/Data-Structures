@@ -1,0 +1,41 @@
+class Solution {
+
+    public static int findDays(int[] weights, int cap) {
+        int days = 1; // Initialize days
+        int load = 0;
+        for(int i = 0; i < weights.length; i++) {
+            if(load + weights[i] > cap) {
+                days++;
+                load = weights[i]; 
+            } else {
+                load = load + weights[i];
+            }
+        }
+        return days;
+    }
+
+    public int shipWithinDays(int[] weights, int days) {
+        int low = 0;
+        int high = 0;
+
+        // Find the Least (MAX) and Find the max (SUM)
+        for(int weight : weights) {
+            low = Math.max(low, weight);
+            high = high + weight;
+        }
+
+        // Binary search
+        while(low < high) {
+            int mid = (low + high) / 2;
+            int numberOfDays = findDays(weights, mid);
+            if (numberOfDays <= days) {
+                // Eliminate right half
+                high = mid; 
+            } else {
+                // Eliminate left half
+                low = mid + 1;
+            }
+        }
+        return low;
+    }
+}
