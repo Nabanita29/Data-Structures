@@ -1,0 +1,23 @@
+class Solution {
+    public boolean searchMatrix(int[][] matrix, int target) {
+
+        //WRT first testcase
+
+       int n = matrix.length; // No of rows (3)
+       int m = matrix[0].length; //No of columns (4)
+
+       int low = 0; 
+       int high = n * m - 1; // 0 based indexing so 11th
+
+       while(low <= high){
+           int mid = (low + high)/2;
+
+            int row = mid / m, col = mid % m; //understand this
+            if (matrix[row][col] == target) return true; //normal binary esrach
+            else if (matrix[row][col] < target) low = mid + 1;
+            else high = mid - 1;
+       }
+
+       return false ;
+    }
+}
