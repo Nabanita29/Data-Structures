@@ -1,0 +1,24 @@
+class Solution {
+    public boolean searchMatrix(int[][] matrix, int target) {
+        // THE OBSERVATION IN THIS IS THAT BOTH ROW AND COLUMNS INCREASE
+        // SO FOR EXAMPLE IF WE START WITH 7 AND IT IS GREATER THAN TARGET 5 WE REALISE 
+        // THAT IT IS DEFINATELY IN THE ROW BEFORE
+
+        if(matrix == null || matrix.length == 0 || matrix[0].length == 0){
+            return false;
+        }
+        int n = matrix.length; 
+        int m = matrix[0].length; 
+
+        int row = 0;
+        int column = m - 1;
+
+        while(row < n && column >= 0){
+            if(matrix[row][column] == target) return true;
+            else if (matrix[row][column] > target) column--;
+            else row++;
+        }
+
+        return false;
+    }
+}
