@@ -1,15 +1,16 @@
 class Solution {
     public List<Integer> findDuplicates(int[] nums) {
+     List<Integer> res = new ArrayList<Integer>();
+     int[] count = new int[nums.length+1];
+     for(int freq : nums) 
+            count[freq]++;
 
-        ArrayList<Integer> result = new ArrayList();
-        HashSet<Integer> set = new HashSet();
-        for(int i = 0; i < nums.length; i++){
-            if(!set.contains(nums[i])){
-                set.add(nums[i]);
-            } else {
-                result.add(nums[i]);
-            }
+     for( int i = 1 ; i <= nums.length ; i++)
+     {
+        if(count[i] == 2){
+            res.add(i);
         }
-        return result;
+     }
+     return res;  
     }
 }
