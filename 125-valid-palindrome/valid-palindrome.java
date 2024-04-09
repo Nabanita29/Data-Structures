@@ -1,30 +1,21 @@
 class Solution {
+    private boolean helper(String s, int start, int end) {
+    // Template with base case and recursive function you want implemented
+        if(start > end) return true;
+        if(s.charAt(start) != s.charAt(end))
+            return false;
+        return helper(s, start + 1, end - 1);
+        
+
+    }
+
     public boolean isPalindrome(String s) {
         s = s.toLowerCase();
-        int low = 0;
-        int high = s.length() - 1;
+        s = s.replaceAll("[^a-zA-Z0-9]", "");
 
-        while (low < high) {
-            char lowChar = s.charAt(low);
-            char highChar = s.charAt(high);
-
-            if (!Character.isLetterOrDigit(lowChar)) {
-                low++;
-                continue;
-            }
-            if (!Character.isLetterOrDigit(highChar)) {
-                high--;
-                continue;
-            }
-
-            if (lowChar != highChar) {
-                return false;
-            }
-
-            low++;
-            high--;
-        }
-
-        return true;
+        return helper(s, 0, s.length() - 1);
     }
 }
+
+
+        
